@@ -56,8 +56,8 @@ jobs:
                 push: false
                 load: true
                 tags: |
-                    ${{github.repository_owner}}/${{steps.reponame.outputs.lowercase}}:${{ env.WEBGOAT_TAG_VERSION }}
-                    ${{github.repository_owner}}/${{steps.reponame.outputs.lowercase}}:latest
+                    ${{github.repository_owner.lowercase}}/${{steps.reponame.outputs.lowercase}}:${{ env.WEBGOAT_TAG_VERSION }}
+                    ${{github.repository_owner.lowercase}}/${{steps.reponame.outputs.lowercase}}:latest
                 build-args: |
                     webgoat_version=${{ env.WEBGOAT_MAVEN_VERSION }}
 

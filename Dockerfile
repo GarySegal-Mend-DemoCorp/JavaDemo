@@ -1,5 +1,5 @@
 FROM docker.io/eclipse-temurin:17-jre-focal
-LABEL NAME = "webgoat"
+LABEL NAME = "WebGoat: A deliberately insecure Web Application"
 MAINTAINER "WebGoat team"
 
 RUN \
