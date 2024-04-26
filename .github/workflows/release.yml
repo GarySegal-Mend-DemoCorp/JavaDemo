@@ -33,6 +33,11 @@ jobs:
               uses: ASzc/change-string-case-action@v6
               with:
                   string: ${{github.event.repository.name}}
+
+            - id: orgname
+              uses: ASzc/change-string-case-action@v6
+              with:
+                string: ${{github.repository_owner}}
         
             - name: "Set labels for ${{ github.ref }}"
               run: |
@@ -56,8 +61,8 @@ jobs:
                 push: false
                 load: true
                 tags: |
-                 ${{lowercase(github.repository_owner)}}/${{steps.reponame.outputs.lowercase}}:${{ env.WEBGOAT_TAG_VERSION }}
-                 ${{lowercase(github.repository_owner)}}/${{steps.reponame.outputs.lowercase}}:latest
+                 ${{steps.orgname.outputs.lowercase}}/${{steps.reponame.outputs.lowercase}}:${{ env.WEBGOAT_TAG_VERSION }}
+                 ${{steps.orgname.outputs.lowercase}}/${{steps.reponame.outputs.lowercase}}:latest
                 build-args: |
                     webgoat_version=${{ env.WEBGOAT_MAVEN_VERSION }}
 
