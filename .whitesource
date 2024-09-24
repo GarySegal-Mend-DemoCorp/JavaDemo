@@ -1,6 +1,3 @@
 { 
-  "settingsInheritedFrom": "GarySegal-Mend-DemoCorp/whitesource-config@main",
-   "scanSettingsSAST": {
-     "enableRemediation": true
-  }
+  "settingsInheritedFrom": "GarySegal-Mend-DemoCorp/whitesource-config@main"
 }
