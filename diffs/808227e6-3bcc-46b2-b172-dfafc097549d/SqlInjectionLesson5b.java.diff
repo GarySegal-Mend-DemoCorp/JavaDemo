@@ -1,6 +1,3 @@
---- original
-+++ remediated
-@@ -0,0 +0,0 @@
  /*
   * This file is part of WebGoat, an Open Web Application Security Project utility. For details, please see http://www.owasp.org/
   *
@@ -62,9 +59,8 @@
    }
  
    protected AttackResult injectableQuery(String login_count, String accountName) {
-@@ -62,1 +62,1 @@
 -    String queryString = "SELECT * From user_data WHERE Login_Count = ? and userid= " + accountName;
-+      String queryString = "SELECT * From user_data WHERE Login_Count = ? and userid= ?";
++    String queryString = "SELECT * From user_data WHERE Login_Count = ? and userid= ?";
      try (Connection connection = dataSource.getConnection()) {
        PreparedStatement query =
            connection.prepareStatement(
@@ -84,8 +80,7 @@
              .build();
        }
  
-@@ -82,0 +82,1 @@
-+        query.setString(2, accountName);
++      query.setString(2, accountName);
        query.setInt(1, count);
        // String query = "SELECT * FROM user_data WHERE Login_Count = " + login_count + " and userid
        // = " + accountName, ;
