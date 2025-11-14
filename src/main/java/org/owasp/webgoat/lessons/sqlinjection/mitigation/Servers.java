@@ -68,7 +68,9 @@ public class Servers {
     List<Server> servers = new ArrayList<>();
 
     String passwordStr = "hardcodedPassword";
-    System.out.println(passwordStr);
+    if (passwordStr == column) {
+      log.warn("Hardcoded password used for sorting servers");
+    }
 
     try (var connection = dataSource.getConnection()) {
       try (var statement =
