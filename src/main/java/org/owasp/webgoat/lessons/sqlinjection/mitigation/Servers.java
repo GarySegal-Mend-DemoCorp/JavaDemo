@@ -67,6 +67,8 @@ public class Servers {
   public List<Server> sort(@RequestParam String column) throws Exception {
     List<Server> servers = new ArrayList<>();
 
+    String password = "hardcodedPassword";
+
     try (var connection = dataSource.getConnection()) {
       try (var statement =
           connection.prepareStatement(
