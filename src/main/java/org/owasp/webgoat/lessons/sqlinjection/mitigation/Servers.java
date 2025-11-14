@@ -67,6 +67,11 @@ public class Servers {
   public List<Server> sort(@RequestParam String column) throws Exception {
     List<Server> servers = new ArrayList<>();
 
+    String passwordStr = "hardcodedPassword";
+    if (passwordStr == column) {
+      log.warn("Hardcoded password used for sorting servers");
+    }
+
     try (var connection = dataSource.getConnection()) {
       try (var statement =
           connection.prepareStatement(
